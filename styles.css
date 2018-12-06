@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 10px;
+
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+fieldset {
+  margin: 4px 4px 20px 4px;
+  width: 200px;
+
+  border-color: rgb(150, 150, 150);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  }
+
+fieldset input {
+  margin: 8px 4px;
+}
+
+fieldset legend {
+  padding: 0 8px;
+}
+
+fieldset label {
+  padding-left: 4px;
+}
+
+#timestamp {
+  padding: 20px;
+
+  position: fixed;
+  top: 22px;
+  left: 250px;
+
+  font-weight: 14px;
+
+  border-color: rgb(150, 150, 150);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+#relative {
+  padding: 20px;
+
+  position: fixed;
+  top: 92px;
+  left: 250px;
+
+  font-weight: 14px;
+
+  border-color: rgb(150, 150, 150);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+}

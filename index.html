@@ -1,0 +1,225 @@
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<!-- Intl -->
+<script type="text/javascript" src="datetime.js"></script>
+
+<!-- Polyfil for intl relative time -->
+<!-- https://github.com/yahoo/intl-relativeformat -->
+<script src="polyfil/relativeformat.min.js"></script>
+<script src="polyfil/locale/en.js"></script>
+<script src="polyfil/locale/de.js"></script>
+<script src="polyfil/locale/ko.js"></script>
+<script src="polyfil/locale/ru.js"></script>
+<script src="polyfil/locale/ar.js"></script>
+
+<div id="timestamp">-</div>
+<div id="relative">-</div>
+
+<form id="locale">
+  <fieldset>
+    <legend>locale</legend>
+    <input type="radio" name="locale" value="en-US" id="locale#en-us">
+    <label for="locale#en-us">en-US</label>
+    <br>
+    <input type="radio" name="locale" value="en-GB" id="locale#en-gb">
+    <label for="locale#en-gb">en-GB</label>
+    <br>
+    <input type="radio" name="locale" value="de-DE" id="locale#de-de">
+    <label for="locale#de-de">de-DE</label>
+    <br>
+    <input type="radio" name="locale" value="ko-KR" id="locale#ko-kr">
+    <label for="locale#ko-kr">ko-KR</label>
+    <br>
+    <input type="radio" name="locale" value="ru-RU" id="locale#ru-ru">
+    <label for="locale#ru-ru">ru-RU</label>
+    <br>
+    <input type="radio" name="locale" value="ar-EG" id="locale#ar-eg">
+    <label for="locale#ar-eg">ar-EG</label>
+  </fieldset>
+</form>
+
+<form id="options">
+  <fieldset>
+    <legend>localeMatcher</legend>
+    <input type="radio" name="localeMatcher" value="lookup" id="localeMatcher#lookup">
+    <label for="localeMatcher#lookup">lookup</label>
+    <br>
+    <input type="radio" name="localeMatcher" value="best fit" id="localeMatcher#best-fit">
+    <label for="localeMatcher#best-fit">best fit</label>
+    <br>
+    <input type="radio" name="localeMatcher" value="undefined" id="localeMatcher#undefined">
+    <label for="localeMatcher#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>timeZone (BCP 175)</legend>
+    <input type="radio" name="timeZone" value="UTC" id="timeZone#UTC">
+    <label for="timeZone#UTC">UTC</label>
+    <br>
+    <input type="radio" name="timeZone" value="Asia/Shanghai" id="timeZone#Asia/Shanghai">
+    <label for="timeZone#Asia/Shanghai">Asia/Shanghai</label>
+    <br>
+    <input type="radio" name="timeZone" value="America/New_York" id="timeZone#America/New_York">
+    <label for="timeZone#America/New_York">America/New_York</label>
+    <br>
+    <input type="radio" name="timeZone" value="undefined" id="timeZone#undefined">
+    <label for="timeZone#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>hour12</legend>
+    <input type="radio" name="hour12" value="true" id="hour12#true">
+    <label for="hour12#true">true</label>
+    <br>
+    <input type="radio" name="hour12" value="false" id="hour12#false">
+    <label for="hour12#false">false</label>
+    <br>
+    <input type="radio" name="hour12" value="undefined" id="hour12#undefined">
+    <label for="hour12#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>hourCycle</legend>
+    <input type="radio" name="hourCycle" value="h11" id="hourCycle#h11">
+    <label for="hourCycle#h11">h11</label>
+    <br>
+    <input type="radio" name="hourCycle" value="h12" id="hourCycle#h12">
+    <label for="hourCycle#h12">h12</label>
+    <br>
+    <input type="radio" name="hourCycle" value="h23" id="hourCycle#h23">
+    <label for="hourCycle#h23">h23</label>
+    <br>
+    <input type="radio" name="hourCycle" value="h24" id="hourCycle#h24">
+    <label for="hourCycle#h24">h24</label>
+    <br>
+    <input type="radio" name="hourCycle" value="undefined" id="hourCycle#undefined">
+    <label for="hourCycle#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>formatMatcher</legend>
+    <input type="radio" name="formatMatcher" value="basic" id="formatMatcher#basic">
+    <label for="formatMatcher#basic">basic</label>
+    <br>
+    <input type="radio" name="formatMatcher" value="best fit" id="formatMatcher#best-fit">
+    <label for="formatMatcher#best-fit">best fit</label>
+    <br>
+    <input type="radio" name="formatMatcher" value="undefined" id="formatMatcher#undefined">
+    <label for="formatMatcher#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>weekday</legend>
+    <input type="radio" name="weekday" value="narrow" id="weekday#narrow">
+    <label for="weekday#narrow">narrow</label>
+    <br>
+    <input type="radio" name="weekday" value="short" id="weekday#short">
+    <label for="weekday#short">short</label>
+    <br>
+    <input type="radio" name="weekday" value="long" id="weekday#long">
+    <label for="weekday#long">long</label>
+    <br>
+    <input type="radio" name="weekday" value="undefined" id="weekday#undefined">
+    <label for="weekday#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>era</legend>
+    <input type="radio" name="era" value="narrow" id="era#narrow">
+    <label for="era#narrow">narrow</label>
+    <br>
+    <input type="radio" name="era" value="short" id="era#short">
+    <label for="era#short">short</label>
+    <br>
+    <input type="radio" name="era" value="long" id="era#long">
+    <label for="era#long">long</label>
+    <br>
+    <input type="radio" name="era" value="undefined" id="era#undefined">
+    <label for="era#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>year</legend>
+    <input type="radio" name="year" value="numeric" id="year#numeric">
+    <label for="year#numeric">numeric</label>
+    <br>
+    <input type="radio" name="year" value="2-digit" id="year#2-digit" checked>
+    <label for="year#2-digit">2-digit</label>
+    <br>
+    <input type="radio" name="year" value="undefined" id="year#undefined">
+    <label for="year#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>month</legend>
+    <input type="radio" name="month" value="numeric" id="month#numeric">
+    <label for="month#numeric">numeric</label>
+    <br>
+    <input type="radio" name="month" value="2-digit" id="month#2-digit" checked>
+    <label for="month#2-digit">2-digit</label>
+    <br>
+    <input type="radio" name="month" value="undefined" id="month#undefined">
+    <label for="month#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>day</legend>
+    <input type="radio" name="day" value="numeric" id="day#numeric">
+    <label for="day#numeric">numeric</label>
+    <br>
+    <input type="radio" name="day" value="2-digit" id="day#2-digit" checked>
+    <label for="day#2-digit">2-digit</label>
+    <br>
+    <input type="radio" name="day" value="undefined" id="day#undefined">
+    <label for="day#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>hour</legend>
+    <input type="radio" name="hour" value="numeric" id="hour#numeric">
+    <label for="hour#numeric">numeric</label>
+    <br>
+    <input type="radio" name="hour" value="2-digit" id="hour#2-digit" checked>
+    <label for="hour#2-digit">2-digit</label>
+    <br>
+    <input type="radio" name="hour" value="undefined" id="hour#undefined">
+    <label for="hour#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>minute</legend>
+    <input type="radio" name="minute" value="numeric" id="minute#numeric">
+    <label for="minute#numeric">numeric</label>
+    <br>
+    <input type="radio" name="minute" value="2-digit" id="minute#2-digit" checked>
+    <label for="minute#2-digit">2-digit</label>
+    <br>
+    <input type="radio" name="minute" value="undefined" id="minute#undefined">
+    <label for="minute#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>second</legend>
+    <input type="radio" name="second" value="numeric" id="second#numeric">
+    <label for="second#numeric">numeric</label>
+    <br>
+    <input type="radio" name="second" value="2-digit" id="second#2-digit" checked>
+    <label for="second#2-digit">2-digit</label>
+    <br>
+    <input type="radio" name="second" value="undefined" id="second#undefined">
+    <label for="second#undefined">undefined</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>timeZoneName</legend>
+    <input type="radio" name="timeZoneName" value="short" id="timeZoneName#short">
+    <label for="timeZoneName#short">short</label>
+    <br>
+    <input type="radio" name="timeZoneName" value="long" id="timeZoneName#long">
+    <label for="timeZoneName#long">long</label>
+    <br>
+    <input type="radio" name="timeZoneName" value="undefined" id="timeZoneName#undefined">
+    <label for="timeZoneName#undefined">undefined</label>
+  </fieldset>
+</form>
